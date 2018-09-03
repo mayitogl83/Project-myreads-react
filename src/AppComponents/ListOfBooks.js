@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import BookData from './BookData.js'
+import BookShelf from './BookShelf.js'
 
 class ListOfBooks extends Component {
   render() {
@@ -11,15 +11,7 @@ class ListOfBooks extends Component {
         </div>
         <div className="list-books-content">
           <div>
-            <div className="bookshelf">
-              <h2 className="bookshelf-title">Currently Reading</h2>
-              <div className="bookshelf-books">
-                <ol className="books-grid">
-                  <BookData/>
-                </ol>
-              </div>
-            </div>
-
+            <BookShelf/>
           </div>
         </div>
         <div className="open-search">
