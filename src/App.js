@@ -21,12 +21,19 @@ class BooksApp extends Component {
       showSearchPage: true
     }))
   }
+  changePageStateFalse = () => {
+    this.setState(state => ({
+      showSearchPage: false
+    }))
+  }
 
   render() {
     return (
       <div className="app">
         {this.state.showSearchPage ? (
-          <SearchBook/>
+          <SearchBook
+            onChangeStateBack={this.changePageStateFalse}
+          />
         ) : (
           <ListOfBooks
             onChangeState={this.changePageStateTrue}
