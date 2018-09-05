@@ -1,12 +1,21 @@
 import React, { Component } from 'react'
+import { PropTypes } from 'prop-types'
 
 class BookData extends Component {
-  bookShelfChange = (evt) => {
-    this.props.onUpdate(evt.target.value)
+
+  static propTypes = {
+    book: PropTypes.object.isRequired,
+    onUpdate: PropTypes.func.isRequired
+  }
+
+  bookShelfChange = (e) => {
+    this.props.onUpdate(e.target.value)
   }
 
   render() {
-    const book = this.props.book
+
+    const { book } = this.props
+
     return (
       <li>
         <div className="book">
@@ -20,9 +29,9 @@ class BookData extends Component {
             <div className="book-shelf-changer">
               <select onChange={this.bookShelfChange} value = {book.shelf}>
                 <option value="move" disabled>Move to...</option>
-                <option value="currentlyReading">Currently Reading</option>
                 <option value="wantToRead">Want to Read</option>
                 <option value="read">Read</option>
+                <option value="currentlyReading">Currently Reading</option>
                 <option value="none">None</option>
               </select>
             </div>

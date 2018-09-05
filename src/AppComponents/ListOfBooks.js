@@ -5,7 +5,6 @@ import BookShelf from './BookShelf.js'
 class ListOfBooks extends Component {
   render() {
     const books = this.props.books
-    const { onChangeState } = this.props
 
     return (
       <div className="list-books">
@@ -38,7 +37,9 @@ class ListOfBooks extends Component {
           </div>
         </div>
         <div className="open-search">
-          <Link to='/search' onClick={() => onChangeState()}>Add a book</Link>
+          <Link to='/search'>
+          Add a book
+          </Link>
         </div>
       </div>
     )
