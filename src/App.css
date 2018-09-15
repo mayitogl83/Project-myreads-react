@@ -61,6 +61,16 @@ body, .app {
   box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
   font-size: 0;
 }
+.open-search a:hover {
+  background: #286b2c;
+  background-image: url('./icons/add.svg');
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  background-size: 30px;
+  background-repeat: no-repeat;
+  background-position: center;
+}
 
 /* search page */
 
@@ -84,7 +94,15 @@ body, .app {
   border: none;
   outline: none;
 }
-
+.close-search:hover {
+  width: 50px;
+  height: 53px;
+  background: white;
+  background-image: url('./icons/arrow-back-hover.svg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 28px;
+}
 .close-search {
   display: block;
   top: 20px;
@@ -139,7 +157,16 @@ body, .app {
   display: flex;
   align-items: flex-end;
 }
-
+.book-shelf-changer:hover {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #2e7d32;
+  background-image: url('./icons/arrow-drop-down.svg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 25px;
+}
 .book-shelf-changer {
   position: absolute;
   right: 0;
