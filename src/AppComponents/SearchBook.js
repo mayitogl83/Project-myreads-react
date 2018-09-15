@@ -8,12 +8,12 @@ class SearchBook extends Component {
 
   state = {
     booksArray: [],
-
     query: ''
   }
 
   static propTypes = {
-    onChange: PropTypes.func.isRequired
+    onChange: PropTypes.func.isRequired,
+    Books: PropTypes.array.isRequired
   }
 
   manageChange = (event) => {
@@ -26,25 +26,37 @@ class SearchBook extends Component {
     this.searchingBooks(value)
   }
 
+  getShelfStatus = (books) => {
+    let allBooks = this.props.Books
+    for (let book of books) {
+      book.shelf = "none"
+    }
+
+    for (let book of books) {
+      for (let b of allBooks) {
+        if (b.id === book.id) {
+          book.shelf = b.shelf
+        }
+      }
+    }
+    return books
+  }
+
   searchingBooks = (v) => {
     if (v.length !== 0) {
-      BooksAPI.search(v, 10).then((books)=> {
+      BooksAPI.search(v).then((books) => {
         if (books.length > 0) {
+          books = books.filter((book) =>(book.imageLinks))
+          books = this.getShelfStatus(books)
           this.setState(()=> {
             return {
-              booksArray:books.filter((book)=>(book.imageLinks))
+              booksArray: books
             }
           })
         }
       })
-  }
-  else
-  {
-    this.setState({
-      booksArray: [],
-
-      query: ''
-    })
+  } else {
+    this.setState({ booksArray: [], query: '' })
   }
 }
 

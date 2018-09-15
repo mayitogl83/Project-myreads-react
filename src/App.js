@@ -21,7 +21,6 @@ class BooksApp extends Component {
     })
   }
 
-
   updateBooksDetail = (book, shelf) => {
     BooksAPI.update(book, shelf).then(()=>{
       this.getBooksDetail()
@@ -39,10 +38,11 @@ class BooksApp extends Component {
       )}/>
         <Route path='/search' render={({ history })=>(
           <SearchBook
-            onChange={(book, shelf)=>{
+            onChange={(book, shelf) => {
               this.updateBooksDetail(book, shelf)
               history.push('/')
-            }}/>
+            }}
+            Books={this.state.booksArray}/>
           )}/>
       </div>
     )
